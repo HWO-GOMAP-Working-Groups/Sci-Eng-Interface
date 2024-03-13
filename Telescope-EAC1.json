@@ -1,0 +1,9 @@
+{
+    "name": "HWO-EAC-1",
+    "apeture_id": 6.0,
+    "apeture_od": 7.2,
+    "format": "off-axis",
+    "temperature_K": 270.0,
+    "diff_limited_wavelength": 500  
+}
+
