@@ -1,0 +1,11 @@
+{
+    "name": "HWO-EAC-3",
+    "apeture_id": 8.0,
+    "apeture_od": 8.0,
+    "format": "off-axis",
+    "pattern": "keystone",
+    "number_of_segments": 34, 
+    "temperature_K": 270.0,
+    "diff_limited_wavelength": 500  
+}
+

@@ -1,10 +1,10 @@
 {
-    "name": "HWO-EAC-1",
+    "name": "HWO-EAC-2",
     "apeture_id": 6.0,
-    "apeture_od": 7.2,
+    "apeture_od": 6.0,
     "format": "off-axis",
-    "pattern": "hex", 
-    "number_of_segments": 19,
+    "pattern": "keystone", 
+    "number_of_segments": 7, 
     "temperature_K": 270.0,
     "diff_limited_wavelength": 500  
 }
