@@ -1,7 +1,7 @@
 {
     "name": "HWO-EAC-2",
-    "apeture_id": 6.0,
-    "apeture_od": 6.0,
+    "aperture_id": 6.0,
+    "aperture_od": 6.0,
     "format": "off-axis",
     "pattern": "keystone", 
     "number_of_segments": 7, 
