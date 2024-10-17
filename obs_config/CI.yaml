@@ -1,0 +1,207 @@
+opticalpath:
+  total_channels: [4, 'number'] #number of coronagraph channels
+      n_pol_splits: [2, 'number'] #number of polarization splits
+      n_wave_splits: [2, 'number'] #number of wavelength splits, between near infrared and viible channels
+  full_path: ['TCA', 'wave_beamsplitter', 'pol_beamsplitter', 'FSM', 'OAPs_forward', 'OAPs_forward', 'DMs', 'DMs', 'OAPs_forward', 'Fold', 'OAPs_back', 'masks.Apodizer', 'OAPs_back', 'masks.Focal_Plane_Mask', 'OAPs_back', 'masks.Lyot_Stop', 'OAPs_back', 'masks.Field_Stop', 'OAPs_back', 'filters', 'OAPs_back', 'Detector']
+OAPs_back:
+  OAP_Rc: [1700, 'mm'] #RoC of all OAPs near masks
+  OAP_off_axis_dist: [100, 'mm'] #off axis distance of OAPs
+  OAP_seg_fl: [852.941176470588, 'mm'] #segment focal length of all OAPs near masks
+  OAP_off_axis_angle: [6.7329213268596, 'degrees'] #off-axis angle of all OAPs near the masks
+  oap_refl: ProtectedAg_refl.yaml #each optic is coated in a protected silver coating
+OAPs_forward: 
+  OAP_Rc: [4000, 'mm'] #RoC of all forward OAPs
+  OAP_off_axis_dist: [100, 'mm'] #off axis distance of OAPs
+  oap_refl: ProtectedAg_refl.yaml  #each optic is coated in a protected silver coating
+TCA:
+  n_refl_optics: [4, 'unitless'] #Fold mirror, M1, M2, M3,
+  TCA_refl: ProtectedAg_refl.yaml  #each optic is coated in a protected silver coating
+  RMS_WFE: [300, 'picometers'] #nominal wavefront error. Produces flat and circular pupil for CI.
+FSM:
+  FSM_refl: ProtectedAg_refl.yaml #coated in protected silver
+  dia_fsm: [85, 'mm'] #beam diameter at FSM; CI's entrance pupil
+DMs:
+  DM1_DM2_separation: [1000, 'mm'] #distance separating the two DMs along the optical axis
+  dia_DM1: [85, 'mm'] #beam diameter at DM1
+  AOI_DM1: [6, 'degrees'] #angle of incidnece of the chief ray on DM1
+  AOI_DM2: [6, 'degrees'] #angle of incidence of the chief ray on DM2
+  DM1_pup_separation: [0, 'mm'] #separation between DM1 and the pupil
+  n_actuators: [[96, 96], ['unitless', 'unitless']] #number of actuators in each dimension
+  actuator_pitch: [1, 'mm'] #pitch in x- and y- per pixel
+  DM_refl: ProtectedAg_refl.yaml #each optic is coated in a protected silver coating
+Fold:
+  Fold_refl: ProtectedAg_refl.yaml
+masks:
+  Apodizer:
+    mode: ['reflective', 'unitless']
+    reflectivity: ProtectedAl_refl.yaml 
+    dia_apodizer: [21.25, 'mm'] #beam diameter at the apodizer
+    AOI_apodizer: [5, 'degrees'] #angle of incidence of the chief ray on the pupil apodizer
+  Focal_Plane_Mask:
+    mode: ['refractive', 'unitless']
+    transmission: UVFusedSilica_trans.yaml
+    f_fpm: [40, 'unitless'] #paraxial f/# at the focal plane mask
+    AOI_fpm: [6.7329213268596, 'degrees'] #angle of incidence of the chief ray on the focal plane mask
+  Lyot_Stop:
+    mode: ['reflective', 'unitless']
+    reflectivity: ProtectedAg_refl.yaml
+    dia_lyot: [21.25, 'mm'] #beam diameter at the Lyot stop
+    AOI_lyot: [4.98227310505068, 'degrees'] #angle of incidence of the chief ray on the Lyot stop
+  Field_Stop:
+    mode: ['refractive', 'unitless']
+    transmission: UVFusedSilica_trans.yaml
+    AOI_fieldstop: [6.7329213268596, 'degrees'] #angle of incidence of the chief ray on the field stop
+
+Visible_Channels:
+  Detectors:
+    Broadband_Imager: 
+      substrate_type: ['Silicon', 'unitless'] #visible detectors are Silicon-based
+      pixel_pitch: [6.5, 'microns'] #pixel pitch for broadband imager
+      detector_format: [[1024, 1024], ['pixels', 'pixels']] #detector size in pixels
+      QE: Teledyne_e2v_EMCCD_QE.yaml
+      T_electronics: [293, 'K'] #electronics are at ambient
+      Power_electronics: [30, 'W'] #upper boundary on the amount of power that the electronics dissipate
+      RN: [0.1, 'electrons/pixel'] #read noise
+      T_sensor: [140, 'K'] #sensor is kept below ambient to minimize noise
+      Power_sensor: [0.3, 'W'] #upper bound on the sensor power dissipation
+      RN: [0, 'counts'] #Read noise of detector; 2024 Detector Technology Roadmap
+      DC: [3e-5, 'counts/pixel/second'] #dark current of EMCCD; 2024 Detector Technology Roadmap
+    LOWFS:
+      substrate_type: ['Silicon', 'unitless'] #visible detectors are Silicon-based
+      pixel_pitch: [6.5, 'microns'] #pixel pitch for broadband imager
+      detector_format: [[128, 128], ['pixels', 'pixels']] #detector size in pixels
+      QE: Teledyne_COSMOS_CMOS_QE.yaml
+      RN: [1, 'electrons/pixel'] #upper limit for read noise for LOWFS 
+      T_sensor: [140, 'K'] #sensor is kept below ambient to minimize noise
+      Power_sensor: [1, 'W'] #upper limit on the allowed power dissipation from the detector
+      T_electronics: [293, 'K'] #upper limit on the temperature of the electronics
+      Power_electronics: [30, 'W'] #upper boundary on the amount of power that the electronics dissipate
+      DC: [2e-3, 'counts/pixel/second'] #Dark Current of photon-counting CMOS; 2024 Detector Technology Roadmap
+      RN: [0.2 , 'electrons']  #Read noise of photon-counting CMOS; 2024 Detector Technology Roadmap
+    DM_Drift:
+      substrate_type: ['Silicon', 'unitless'] #visible detectors are Silicon-based
+      pixel_pitch: [6.5, 'microns'] #pixel pitch for broadband imager
+      detector_format: [[2048, 2048], ['pixels', 'pixels']] #detector size in pixels
+      QE: Teledyne_COSMOS_CMOS_QE.yaml
+      RN: [10, 'electrons/pixel'] #upper limit for read noise  
+      T_sensor: [220, 'K'] #sensor is kept below ambient to minimize noise
+      Power_sensor: [0.1, 'W'] #upper limit on the allowed power dissipation from the detector
+      T_electronics: [293, 'K'] #upper limit on the temperature of the electronics
+      Power_electronics: [5, 'W'] #upper boundary on the amount of power that the electronics dissipate
+      DC: [2e-3, 'counts/pixel/second'] #Dark Current of photon-counting CMOS; 2024 Detector Technology Roadmap
+      RN: [0.2 , 'electrons']  #Read noise of photon-counting CMOS; 2024 Detector Technology Roadmap
+    IFS:
+      substrate_type: ['Silicon', 'unitless'] #visible detectors are Silicon-based
+      pixel_pitch: [6.5, 'microns'] #pixel pitch for broadband imager
+      detector_format: [[4096, 4096], ['pixels', 'pixels']] #detector size in pixels
+      QE: Teledyne_e2v_EMCCD_QE.yaml
+      T_electronics: [293, 'K'] #electronics are at ambient
+      Power_electronics: [30, 'W'] #upper boundary on the amount of power that the electronics dissipate
+      T_sensor: [140, 'K'] #sensor is kept below ambient to minimize noise
+      Power_sensor: [0.3, 'W'] #upper limit on the allowed power dissipation from the detector
+      RN: [0, 'counts'] #Read noise of detector; 2024 Detector Technology Roadmap
+      DC: [3e-5, 'counts/pixel/second'] #dark current of EMCCD; 2024 Detector Technology Roadmap
+  AO:
+    ScienceCamera:
+      type: ['phase retrieval', 'unitless'] #current concept
+      source: ['starlight in band', 'unitless'] #can alternatively be an artificial guide star
+      detector: Visible_Channels.Detectors.Broadband_Imager
+      image_type: ['focus', 'unitless']
+    LOWFS:
+      type: ['Zernike wavefront sensor', 'unitless'] #current concept
+      source: ['starlight reflected off FPM', 'unitless']
+      detector: Visible_Channels.Detectors.LOWFS
+      image_type: ['pupil', 'unitless'] 
+      bandpass: 
+        central_wavelength: [550, 'nm'] #operating wavelength for LOWFS
+        bandwidth: [20, 'percent'] #operating bandpass for LOWFS
+    DM_Drift_Sensor:
+      type: ['photonic self-referenced interferometer', 'unitless']
+      image_type: ['pupil', 'unitless']
+      detector: Visible_Channels.Detectors.DM_Drift
+      bandpass:
+        central_wavelength: [399, 'nm'] #slightly shortward of science interest area
+        bandwidth: [1, 'percent'] #operating bandpass for DM Drift sensor needs to be small
+  Performance:
+    Broadband_Imager: 
+      plate_scale: [, 'mas/pixel'] #final plate scale on the sky
+      RMS_WFE: [, 'nm'] #RMS wavefront error at instrument focal plane
+    #IFS:
+      #plate_scale: [, 'mas/pixel'] #final plate scale on the sky
+      #RMS_WFE: [, 'nm'] #RMS wavefront error at instrument focal plane
+      #spectral_resolution: [140, 'unitless'] #spectral resolution 
+      #spec_res_defining_wave: [0.7, 'micron'], #spectral resolution defining wavelength
+    #total_throughput_to_BBI: vis_channel_refl.yaml #total throughput to broadband imager
+
+NIR_Channels:
+  Detectors:
+    Broadband_Imager: 
+      substrate_type: ['HgCdTe', 'unitless'] #visible detectors are Silicon-based
+      pixel_pitch: [15, 'microns'] #pixel pitch for broadband imager
+      detector_format: [[1024, 1024], ['pixels', 'pixels']] #detector size in pixels
+      QE: SaphiraLMAPDwGain_QE.yaml
+      T_electronics: [50, 'K'] #electronics are at ambient
+      Power_electronics: [0.2, 'W'] #upper boundary on the amount of power that the electronics dissipate
+      RN: [0.3, 'electrons/pixel'] #read noise
+      T_sensor: [65, 'K'] #sensor is kept below ambient to minimize noise
+      Power_sensor: [0.05, 'W'] #upper bound on the sensor power dissipation
+      DC: [1e-4, 'counts/pixel/second'] #Dark Current of LMAPD; 2024 Detector Technology Roadmap
+      RN: [0.4 , 'electrons']  #Read noise of LMAPD; 2024 Detector Technology Roadmap
+    LOWFS:
+      substrate_type: ['HgCdTe', 'unitless'] #visible detectors are Silicon-based
+      pixel_pitch: [15, 'microns'] #pixel pitch for broadband imager
+      detector_format: [[128, 128], ['pixels', 'pixels']] #detector size in pixels
+      QE: RST_H4RG_Mean_QE.yaml
+      RN: [1, 'electrons/pixel'] #upper limit for read noise for LOWFS 
+      T_sensor: [65, 'K'] #sensor is kept below ambient to minimize noise
+      Power_sensor: [0.05, 'W'] #upper limit on the allowed power dissipation from the detector
+      T_electronics: [50, 'K'] #upper limit on the temperature of the electronics
+      Power_electronics: [0.2, 'W'] #upper boundary on the amount of power that the electronics dissipate
+      DC: [2e-3, 'counts/pixel/second'] #Dark Current of H4RG; https://ntrs.nasa.gov/api/citations/20210011344/downloads/TM%E2%80%9320210011344%20RST_Report_Acceptance_Test_H4RG_21813_v1.pdf
+      RN: [6 , 'electrons']  #Total noise of H4RG; https://ntrs.nasa.gov/api/citations/20210011344/downloads/TM%E2%80%9320210011344%20RST_Report_Acceptance_Test_H4RG_21813_v1.pdf
+    DM_Drift: Visible_Channels.Detectors.DM_Drift
+    IFS:
+      substrate_type: ['HgCdTe', 'unitless'] #visible detectors are Silicon-based
+      pixel_pitch: [15, 'microns'] #pixel pitch for broadband imager
+      detector_format: [[2048, 2048], ['pixels', 'pixels']] #detector size in pixels
+      QE: SaphiraLMAPDwGain_QE.yaml
+      T_electronics: [50, 'K'] #electronics are at ambient
+      Power_electronics: [0.2, 'W'] #upper boundary on the amount of power that the electronics dissipate
+      T_sensor: [65, 'K'] #sensor is kept below ambient to minimize noise
+      Power_sensor: [0.05, 'W'] #upper limit on the allowed power dissipation from the detector
+      DC: [1e-4, 'counts/pixel/second'] #Dark Current of LMAPD; 2024 Detector Technology Roadmap
+      RN: [0.4 , 'electrons']  #Read noise of LMAPD; 2024 Detector Technology Roadmap
+  AO:
+    ScienceCamera:
+      type: ['phase retrieval', 'unitless'] #current concept
+      source: ['starlight in band', 'unitless'] #can alternatively be an artificial guide star
+      detector: Visible_Channels.Detectors.Broadband_Imager
+      image_type: ['focus', 'unitless']
+    LOWFS:
+      type: ['Zernike wavefront sensor', 'unitless'] #current concept
+      source: ['starlight reflected off FPM', 'unitless']
+      detector: Visible_Channels.Detectors.LOWFS
+      image_type: ['pupil', 'unitless'] 
+      bandpass: 
+        central_wavelength: [1100, 'nm'] #operating wavelength for LOWFS
+        bandwidth: [20, 'percent'] #operating bandpass for LOWFS
+    DM_Drift_Sensor:
+      type: ['photonic self-referenced interferometer', 'unitless']
+      image_type: ['pupil', 'unitless']
+      detector: Visible_Channels.Detectors.DM_Drift
+      bandpass:
+        central_wavelength: [399, 'nm'] #slightly shortward of science interest area
+        bandwidth: [1, 'percent'] #operating bandpass for DM Drift sensor needs to be small
+  Performance:
+    Broadband_Imager: 
+      plate_scale: [4.85, 'mas/pixel'] #final plate scale on the sky
+      #RMS_WFE: [, 'nm'] #RMS wavefront error at instrument focal plane
+    #IFS:
+      #plate_scale: [, 'mas/pixel'] #final plate scale on the sky
+      #RMS_WFE: [, 'nm'] #RMS wavefront error at instrument focal plane
+      #spectral_resolution: [70, 'unitless'] #spectral resolution 
+      #spec_res_defining_wave: [1.0, 'micron'], #spectral resolution defining wavelength
+    #total_throughput_to_BBI: vis_channel_refl.yaml #total throughput to broadband imager
+
+
+
