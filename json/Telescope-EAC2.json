@@ -1,0 +1,13 @@
+{
+    "name": "HWO-EAC-2",
+    "aperture_id": 6.0,
+    "aperture_od": 6.0,
+    "format": "off-axis",
+    "pattern": "keystone", 
+    "number_of_segments": 7, 
+    "temperature_K": 270.0,
+    "diff_limited_wavelength": 500, 
+    "ota_emissivity": 0.24, 
+    "unobscured_fraction": 1.0 
+}
+

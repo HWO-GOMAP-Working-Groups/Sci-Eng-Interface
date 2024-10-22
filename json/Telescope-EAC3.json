@@ -1,0 +1,13 @@
+{
+    "name": "HWO-EAC-3",
+    "aperture_id": 8.0,
+    "aperture_od": 8.0,
+    "format": "on-axis",
+    "pattern": "keystone",
+    "number_of_segments": 34, 
+    "temperature_K": 270.0,
+    "diff_limited_wavelength": 500, 
+    "ota_emissivity": 0.24, 
+    "unobscured_fraction": 0.9
+}
+
