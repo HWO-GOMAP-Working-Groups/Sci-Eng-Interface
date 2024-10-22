@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name="hwo_sci_eng",
-      version="0.1.1",
+      version="0.1.2",
       description="HWO Science Engineering Interface", 
       author="Breann Sitarski, NASA/GSFC, Jason Tumlinson, STScI", 
       author_email=" ",
