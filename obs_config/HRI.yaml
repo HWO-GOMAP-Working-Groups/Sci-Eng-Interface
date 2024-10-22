@@ -13,7 +13,7 @@ UVIS:
     detector: #assuming CMOS detector
         detector_T: [140, 'Kelvin'] #temperature the detector is held to
         detector_RN: [0.2, 'electrons'] #detector read noise
-	    detector_DC: [0.002, 'electrons/pixel/second'] #detector dark current
+        detector_DC: [0.002, 'electrons/pixel/second'] #detector dark current
         detector_QE: Teledyne_COSMOS_CMOS_QE.yaml
     filters: UVIS_filters.yaml
     n_refl_optics: [9, 'unitless'] #number of reflective optics from M4 to the instrument focal plane. 4-mirror collimator to pupil, channel select mechanism (assume 1 refl optic), 4 mirror imager
