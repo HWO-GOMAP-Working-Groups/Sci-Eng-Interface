@@ -1,0 +1,77 @@
+FUV_Imager:
+    SpecBP: [[100, 200], ['nm', 'nm']] #spectral bandpass upper and lower wavelength range
+    FOV: [[2, 2], ['arcmin', 'arcmin']] #field of view in x and y directions for FUVI focal plane
+    ImagingRes: [50, 'mas'] #imaging resolution requirement
+    AverageAngRes_fullFOV: [48, 'mas'] #average angular resolution across the full FOV
+    AverageAngRes_1x1: [40, 'mas'] #average angular resolution in the inner 1' x 1' FOV
+    N_refl_optics: [3, 'unitless'] #number of reflective optics after telescope focal plane
+    shutters: MSA
+    TilingFUVMOS: [[2, 1], ['unitless', 'unitless']] #Tiling of the MSAs for FUVMOS
+    detetor: MCP
+    detectorTiling: [[2, 1], ['unitless', 'unitless']] #Tiling of MCPs for FUVMOS
+FUV_MOS:
+  G120M:
+    SpecBP: [[100, 140], ['nm', 'nm']] #spectral bandpass upper and lower wavelength range
+    FOV: [[2, 2], ['arcmin', 'arcmin']] #field of view in x and y directions
+    SpectralR: [[30000, 'unitless']] #spectral resolving power
+    ImagingRes: [50, 'mas'] #imaging resolution requirement
+    N_refl_optics: [3, 'unitless'] #number of reflective optics after telescope focal plane. Includes the grating.
+  G150M:
+    SpecBP: [[130, 170], ['nm', 'nm']] #spectral bandpass upper and lower wavelength range
+    FOV: [[2, 2], ['arcmin', 'arcmin']] #field of view in x and y directions
+    SpectralR: [[30000, 'unitless']] #spectral resolving power
+    ImagingRes: [50, 'mas'] #imaging resolution requirement
+    N_refl_optics: [3, 'unitless'] #number of reflective optics after telescope focal plane. Includes the grating.
+  G180M:
+    SpecBP: [[160, 200], ['nm', 'nm']] #spectral bandpass upper and lower wavelength range
+    FOV: [[2, 2], ['arcmin', 'arcmin']] #field of view in x and y directions
+    SpectralR: [[30000, 'unitless']] #spectral resolving power
+    ImagingRes: [50, 'mas'] #imaging resolution requirement
+    N_refl_optics: [3, 'unitless'] #number of reflective optics after telescope focal plane. Includes the grating.
+  G155L:
+    SpecBP: [[100, 200], ['nm', 'nm']] #spectral bandpass upper and lower wavelength range
+    FOV: [[2, 2], ['arcmin', 'arcmin']] #field of view in x and y directions
+    SpectralR: [[8000, 'unitless']] #spectral resolving power
+    ImagingRes: [50, 'mas'] #imaging resolution requirement
+    N_refl_optics: [3, 'unitless'] #number of reflective optics after telescope focal plane. Includes the grating.
+  G145LL:
+    SpecBP: [[100, 200], ['nm', 'nm']] #spectral bandpass upper and lower wavelength range
+    FOV: [[2, 2], ['arcmin', 'arcmin']] #field of view in x and y directions
+    SpectralR: [[5000, 'unitless']] #spectral resolving power
+    ImagingRes: [50, 'mas'] #imaging resolution requirement
+    N_refl_optics: [3, 'unitless'] #number of reflective optics after telescope focal plane. Includes the grating.
+  G165LL:
+    SpecBP: [[110, 200], ['nm', 'nm']] #spectral bandpass upper and lower wavelength range
+    FOV: [[2, 2], ['arcmin', 'arcmin']] #field of view in x and y directions
+    SpectralR: [[500, 'unitless']] #spectral resolving power
+    ImagingRes: [50, 'mas'] #imaging resolution requirement
+    N_refl_optics: [3, 'unitless'] #number of reflective optics after telescope focal plane. Includes the grating.
+  shutters: MSA
+  TilingFUVMOS: [[2, 1], ['unitless', 'unitless']] #Tiling of the MSAs for FUVMOS
+  detetor: MCP
+  detectorTiling: [[2, 1], ['unitless', 'unitless']] #Tiling of MCPs for FUVMOS
+NUV_MOS:
+  G300M:
+    SpecBP: [[200, 400], ['nm', 'nm']] #spectral bandpass upper and lower wavelength range
+    FOV: [[2, 2], ['arcmin', 'arcmin']] #field of view in x and y directions
+    SpectralR: [[20000, 'unitless']] #spectral resolving power
+    ImagingRes: [50, 'mas'] #imaging resolution requirement
+    N_refl_optics: [4, 'unitless'] #number of reflective optics after telescope focal plane. Includes the grating.
+  G700L:
+    SpecBP: [[400, 1000], ['nm', 'nm']] #spectral bandpass upper and lower wavelength range
+    FOV: [[2, 2], ['arcmin', 'arcmin']] #field of view in x and y directions
+    SpectralR: [[15000, 'unitless']] #spectral resolving power
+    ImagingRes: [50, 'mas'] #imaging resolution requirement
+    N_refl_optics: [4, 'unitless'] #number of reflective optics after telescope focal plane. Includes the grating.
+  detector: CMOS
+  detectorTiling: [[2, 7], ['unitless', 'unitless']] # detector tiling for the NUV MOS
+MSA:
+  SingleShutterDim: [[100,200], ['microns', 'microns']] #dimensions in x- and y- of a single shutter
+  SingleArrayFormat: [[420, 840], ['unitless', 'unitless']] #number of microshutters in a given direction. 840 shutters in the dimension of 100 µm; 420 shutters in the demsnions of 200 µm.
+MCP:
+  Extent: [[200, 150], ['mm', 'mm']] #extent of the microchannel plante tiles
+  QE: MCP_QE.yaml
+CMOS:
+  PixelPitch: [6.5, 'microns'] #pixel pitch for CMOS detector
+  DetectorFormat: [[8192, 8192], ['pixels', 'pixels']] #CMOS 8K x 8K detectors
+  QE: Teledyne_COSMOS_CMOS_QE.yaml

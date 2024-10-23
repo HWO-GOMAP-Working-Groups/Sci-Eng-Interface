@@ -1,0 +1,43 @@
+PM_aperture:
+    segmentation: [hex, 'unitless'] #EAC1 has hexagonal segmentation
+    segmentation_parameters:
+        inscribing_diameter: [5.976938, 'meters'] #inscribing diameter of the full EAC1 aperture
+        circumscribing_diameter: [7.225765, 'meters'] #circumscribing diameter of the full EAC1 aperture
+        segment_size: [1.65, 'meters'] #meters, physcial size, point-to-point
+        number_rings: [2, 'unitless'] #around center segment
+        ring_rotation: [[30, 90], ['degrees', 'degrees']] # clocking of each ring vs absolute Cartesian axes, degrees
+        number_segments: [19, 'unitless'] #all identical
+        optical_gap: [0.006, 'meters'] #meters = OD of ring N minus ID of ring N-1
+        physical_gap: [0.004, 'meters'] #meters with 1 mm physical roll off on edge of mirrors
+        obscuration_ratio: [0, 'fraction'] #unitless, percentage of PM obscured by SM
+        M1_Rc: [-35.5776, 'meters'] #radius of curvature of the parent primary mirror
+        M1_k: [-0.991054812375926, 'unitless'] #unitless; conic constant of the parent primary mirror
+    M1_GC_vertex: [[0, 0, 0, 0, 0, 0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x,y,z,rx, ry, rz position of the M1 primary mirror vertex in the M1 Vertex Coordinate System
+    M1_reflectivity: XeLiF_refl.yaml #reflectivity curve vs. wavelength
+    M1_OffAxisDistance: [4.754, 'meters'] #EAC1 is an off-axis telescope. This describes how far off axis on the parent sphere the primary is.
+SM:
+    M2_Rc: [-4.13686525041579, 'meters'] #Radius of curvature of the secondary mirror
+    M2_k: [-1.53650638145207, 'unitless'] #Conic constant of secondary mirror segment
+    M2_GC_vertex: [[0, 0.05062064808, -15.098269601, -1.580743398, 0,0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x, y, z, rx, ry, rz of the M2 mirror in the M1 Vertex Coordinate System
+    reflectivity: XeLiF_ref.yaml #reflectivity curve vs. wavelength
+M3:
+    M3_Rc: [-4.9909307252683, 'meters'] # Radius of curvature of the tertiary, NOTE THAT IT IS SEGMENTED 
+    M3_k: [-1.3445836937761, 'unitless'] # conic constant of the tertiary mirror
+    M3_nsegs: [5, 'unitless']
+    M3_GC_vertex: [[0, 0.8788664309, 3.195682856, -5.677499209, 0, 0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x, y, z, rx, ry, rz of the M3 mirror in the M1 Vertex Coordinate System
+    M3_asph_coefs: [] #
+M4:
+    M4_Rc: [417.107295000867, 'meters'] #Radius of curvature of M4 in meters
+    M4_k: [0, 'unitless'] #conic constant of M4
+    M4_GC_vertex: [[0, 0.6515207638, 1.579775593, -52.19765458, 0, 0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x, y, z, rx, ry, rz of the M4 mirror in the M1 Vertex Coordinate System
+    M4_asph_coeffs: [] #
+OTA_full:
+    f_number: [20, 'unitless'] #focal ratio of the OTA system
+    focal_length: [144, 'meters'] #meters. Focal length of OTA system
+    image_RC: [65.535, 'meters'] #radius of curvatuer of the telescope image plane
+    image_GC_vertex: [[0, 4.100793165, 1.520655943, -90.92342264, 0, 0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x, y, z, rx, ry, rz of the image plane in the M1 Vertex Coordinate System
+INST:
+    HRI: HRI.yaml #contains all the instrument parameters for the high-resolution imager
+    GI: GI.yaml #includes all instrument parameters for the guider instruments
+    CI: CI.yaml #includes all instrument parameters for the coronagraphic instrument
+    UVI: UVI.yaml #includes all instrument parameters for the ultraviolet instrument
