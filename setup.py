@@ -9,7 +9,7 @@ setup(name="hwo_sci_eng",
       keywords=["simulation", "astronomy", "astrophysics"],
       url="https://github.com/HWO-GOMAP-Working-Groups/Sci-Eng-Interface", 
       packages=["obs_config", "json", "utils"], 
-      package_data={'':['*.yaml', '*.json', 'json/*json', 'obs_config/*.yaml']}, 
+      package_data={'':['*.yaml', '*.json', 'json/*json', 'obs_config/*.yaml', 'obs_config/CI/*yaml', 'obs_config/Detectors/*yaml', 'obs_config/HRI/*yaml', 'obs_config/Tel/*yaml', 'obs_config/UVI/*yaml']}, 
       include_package_data=True,
       classifiers=[
           "Programming Language :: Python :: 3.6",
