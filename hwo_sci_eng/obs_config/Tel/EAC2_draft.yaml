@@ -1,0 +1,32 @@
+PM_aperture:
+    segmentation: [keystone, 'unitless'] # EAC2 has keystone segmentation
+    segmentation_parameters:
+        inscribing_diameter: [6.000000, 'meters'] #inscribing diameter of the full EAC1 aperture
+        circumscribing_diameter: [6.000000, 'meters'] #circumscribing diameter of the full EAC1 aperture
+        obscuration_ratio: [0, 'fraction'] #unitless, percentage of PM obscured by SM
+    M1_reflectivity: XeLiF_refl.yaml #reflectivity curve vs. wavelength
+SM:
+    M2_Rc: [-999.999999999999, 'meters'] #Radius of curvature of the secondary mirror
+    M2_k: [-999.999999999999, 'unitless'] #Conic constant of secondary mirror segment
+    reflectivity: XeLiF_ref.yaml #reflectivity curve vs. wavelength
+M3:
+    M3_Rc: [9.99999999999993, 'meters'] # Radius of curvature of the tertiary, NOTE THAT IT IS SEGMENTED 
+    M3_k: [-999.99999999999, 'unitless'] # conic constant of the tertiary mirror
+    M3_nsegs: [5, 'unitless']
+    M3_GC_vertex: [[0, 0.8788664309, 3.195682856, -5.677499209, 0, 0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x, y, z, rx, ry, rz of the M3 mirror in the M1 Vertex Coordinate System
+    M3_asph_coefs: [] #
+M4:
+    M4_Rc: [999.999999999999, 'meters'] #Radius of curvature of M4 in meters
+    M4_k: [0, 'unitless'] #conic constant of M4
+    M4_GC_vertex: [[0, 0.6515207638, 1.579775593, -52.19765458, 0, 0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x, y, z, rx, ry, rz of the M4 mirror in the M1 Vertex Coordinate System
+    M4_asph_coeffs: [] #
+OTA_full:
+    f_number: [99, 'unitless'] #focal ratio of the OTA system
+    focal_length: [99., 'meters'] #meters. Focal length of OTA system
+    image_RC: [99.999, 'meters'] #radius of curvatuer of the telescope image plane
+    image_GC_vertex: [[0, 4.100793165, 1.520655943, -90.92342264, 0, 0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x, y, z, rx, ry, rz of the image plane in the M1 Vertex Coordinate System
+INST:
+    HRI: HRI.yaml #contains all the instrument parameters for the high-resolution imager
+    GI: GI.yaml #includes all instrument parameters for the guider instruments
+    CI: CI.yaml #includes all instrument parameters for the coronagraphic instrument
+    UVI: UVI.yaml #includes all instrument parameters for the ultraviolet instrument

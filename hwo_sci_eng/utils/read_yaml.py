@@ -9,12 +9,17 @@ def eac1():
 
 def eac2(): 
     
-    raise NotImplementedError
+    with open(os.getenv('SCI_ENG_DIR') + '/obs_config/Tel/EAC2_draft.yaml', 'r') as f:
+        eac2 = yaml.load(f, Loader=yaml.SafeLoader)
+
+    return eac2 
 
 def eac3(): 
     
-    raise NotImplementedError
+    with open(os.getenv('SCI_ENG_DIR') + '/obs_config/Tel/EAC3_draft.yaml', 'r') as f:
+        eac3 = yaml.load(f, Loader=yaml.SafeLoader)
 
+    return eac3 
 
 def hri(): 
     
