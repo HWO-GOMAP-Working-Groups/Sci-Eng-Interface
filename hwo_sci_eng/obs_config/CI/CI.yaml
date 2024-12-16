@@ -6,8 +6,8 @@ opticalpath:
 wave_beamsplitter:
   AOI: [22.5, 'degrees'] #angle of incidence of polarization beamsplitter
   transition_wavelength: [1, 'micron'] #wavelength at which the light goes from 
-  reflectivity: dichroic_refl.yaml
-  transmission: dichroic_tranmission.yaml
+  reflectivity: ../reflectivities/dichroic_refl.yaml
+  transmission: ../reflectivities/dichroic_tranmission.yaml
 pol_beamsplitter:
   transmitted_pol_state: ['S', 'unitless']
   reflective_pol_state: ['P', 'unitless']
@@ -16,22 +16,22 @@ OAPs_back:
   off_axis_dist: [100, 'mm'] #off axis distance of OAPs
   seg_fl: [852.941176470588, 'mm'] #segment focal length of all OAPs near masks
   off_axis_angle: [6.7329213268596, 'degrees'] #off-axis angle of all OAPs near the masks
-  reflectivity: ProtectedAg_refl.yaml #each optic is coated in a protected silver coating
+  reflectivity: ../reflectivities/ProtectedAg_refl.yaml #each optic is coated in a protected silver coating
 OAPs_forward: 
   Rc: [4000, 'mm'] #RoC of all forward OAPs
   off_axis_dist: [100, 'mm'] #off axis distance of OAPs
-  reflectivity: ProtectedAg_refl.yaml  #each optic is coated in a protected silver coating
+  reflectivity: ../reflectivities/ProtectedAg_refl.yaml  #each optic is coated in a protected silver coating
 TCA:
-  reflectivity: ProtectedAg_refl.yaml  #each optic is coated in a protected silver coating
+  reflectivity: ../reflectivities/ProtectedAg_refl.yaml  #each optic is coated in a protected silver coating
   RMS_WFE: [300, 'picometers'] #nominal wavefront error. Produces flat and circular pupil for CI.
 FSM:
-  reflectivity: ProtectedAg_refl.yaml #coated in protected silver
+  reflectivity: ../reflectivities/ProtectedAg_refl.yaml #coated in protected silver
   diameter: [85, 'mm'] #beam diameter at FSM; CI's entrance pupil
 DM1:
   AOI: [6, 'degrees'] #angle of incidnece of the chief ray on DM1
   n_actuators: [[96, 96], ['unitless', 'unitless']] #number of actuators in each dimension
   actuator_pitch: [1, 'mm'] #pitch in x- and y- per pixel
-  reflectivity: ProtectedAg_refl.yaml #each optic is coated in a protected silver coating
+  reflectivity: ../reflectivities/ProtectedAg_refl.yaml #each optic is coated in a protected silver coating
   diameter: [85, 'mm'] #beam diameter at DM1
   pupil_separation: [0, 'mm'] #separation between DM1 and the pupil
   DM_separation: [1000, 'mm'] #distance separating the two DMs along the optical axis
@@ -39,23 +39,23 @@ DM2:
   AOI: [6, 'degrees'] #angle of incidence of the chief ray on DM2
   n_actuators: [[96, 96], ['unitless', 'unitless']] #number of actuators in each dimension
   actuator_pitch: [1, 'mm'] #pitch in x- and y- per pixel
-  reflectivity: ProtectedAg_refl.yaml #each optic is coated in a protected silver coating
+  reflectivity: ../reflectivities/ProtectedAg_refl.yaml #each optic is coated in a protected silver coating
 Fold:
-  reflectivity: ProtectedAg_refl.yaml
+  reflectivity: ../reflectivities/ProtectedAg_refl.yaml
 Apodizer:
-  reflectivity: ProtectedAl_refl.yaml 
+  reflectivity: ../reflectivities/ProtectedAl_refl.yaml 
   diameter: [21.25, 'mm'] #beam diameter at the apodizer
   AOI: [5, 'degrees'] #angle of incidence of the chief ray on the pupil apodizer
 Focal_Plane_Mask:
-  transmission: UVFusedSilica_trans.yaml
+  transmission: ../reflectivities/UVFusedSilica_trans.yaml
   f: [40, 'unitless'] #paraxial f/# at the focal plane mask
   AOI: [6.7329213268596, 'degrees'] #angle of incidence of the chief ray on the focal plane mask
 Lyot_Stop:
-  reflectivity: ProtectedAg_refl.yaml
+  reflectivity: ../reflectivities/ProtectedAg_refl.yaml
   diameter: [21.25, 'mm'] #beam diameter at the Lyot stop
   AOI: [4.98227310505068, 'degrees'] #angle of incidence of the chief ray on the Lyot stop
 Field_Stop:
-  transmission: UVFusedSilica_trans.yaml
+  transmission: ../reflectivities/UVFusedSilica_trans.yaml
   AOI: [6.7329213268596, 'degrees'] #angle of incidence of the chief ray on the field stop
 
 Visible_Channels:
@@ -64,9 +64,9 @@ Visible_Channels:
       substrate_type: ['Silicon', 'unitless'] #visible detectors are Silicon-based
       pixel_pitch: [6.5, 'microns'] #pixel pitch for broadband imager
       detector_format: [[1024, 1024], ['pixels', 'pixels']] #detector size in pixels
-      QE: #Teledyne_e2v_EMCCD_QE.yaml
+      QE: ../Detectors/Teledyne_e2v_EMCCD_QE.yaml
       RN: [0.1, 'electrons/pixel'] #read noise
-      DC: [3e-5, 'counts/pixel/second'] #dark current of EMCCD; 2024 Detector Technology Roadmap
+      DC: [3e-5, 'electrons/pixel/second'] #dark current of EMCCD; 2024 Detector Technology Roadmap
       Electronics:
         temperature: [293, 'K'] #electronics are at ambient
         power: [30, 'W'] #upper boundary on the amount of power that the electronics dissipate
@@ -77,7 +77,7 @@ Visible_Channels:
       substrate_type: ['Silicon', 'unitless'] #visible detectors are Silicon-based
       pixel_pitch: [6.5, 'microns'] #pixel pitch for broadband imager
       detector_format: [[128, 128], ['pixels', 'pixels']] #detector size in pixels
-      QE: Teledyne_COSMOS_CMOS_QE.yaml
+      QE: ../Detectors/Teledyne_COSMOS_CMOS_QE.yaml
       RN: [1, 'electrons/pixel'] #upper limit for read noise for LOWFS 
       DC: [2e-3, 'counts/pixel/second'] #Dark Current of photon-counting CMOS; 2024 Detector Technology Roadmap
       Electronics:
@@ -90,7 +90,7 @@ Visible_Channels:
       substrate_type: ['Silicon', 'unitless'] #visible detectors are Silicon-based
       pixel_pitch: [6.5, 'microns'] #pixel pitch for broadband imager
       detector_format: [[2048, 2048], ['pixels', 'pixels']] #detector size in pixels
-      QE: Teledyne_COSMOS_CMOS_QE.yaml
+      QE: ../Detectors/Teledyne_COSMOS_CMOS_QE.yaml
       RN: [10, 'electrons/pixel'] #upper limit for read noise  
       DC: [2e-3, 'counts/pixel/second'] #Dark Current of photon-counting CMOS; 2024 Detector Technology Roadmap
       Electronics:
@@ -103,9 +103,9 @@ Visible_Channels:
       substrate_type: ['Silicon', 'unitless'] #visible detectors are Silicon-based
       pixel_pitch: [6.5, 'microns'] #pixel pitch for broadband imager
       detector_format: [[4096, 4096], ['pixels', 'pixels']] #detector size in pixels
-      QE: Teledyne_e2v_EMCCD_QE.yaml
+      QE: ../Detectors/Teledyne_e2v_EMCCD_QE.yaml
       RN: [0, 'counts'] #Read noise of detector; 2024 Detector Technology Roadmap
-      DC: [3e-5, 'counts/pixel/second'] #dark current of EMCCD; 2024 Detector Technology Roadmap
+      DC: [3e-5, 'electrons/pixel/second'] #dark current of EMCCD; 2024 Detector Technology Roadmap
       Electronics:
         temperature: [293, 'K'] #electronics are at ambient
         power: [30, 'W'] #upper boundary on the amount of power that the electronics dissipate
@@ -150,7 +150,7 @@ NIR_Channels:
       substrate_type: ['HgCdTe', 'unitless'] #visible detectors are Silicon-based
       pixel_pitch: [15, 'microns'] #pixel pitch for broadband imager
       detector_format: [[1024, 1024], ['pixels', 'pixels']] #detector size in pixels
-      QE: SaphiraLMAPDwGain_QE.yaml
+      QE: ../Detectors/SaphiraLMAPDwGain_QE.yaml
       T_electronics: [50, 'K'] #electronics are at ambient
       Power_electronics: [0.2, 'W'] #upper boundary on the amount of power that the electronics dissipate
       RN: [0.3, 'electrons/pixel'] #read noise
@@ -161,7 +161,7 @@ NIR_Channels:
       substrate_type: ['HgCdTe', 'unitless'] #visible detectors are Silicon-based
       pixel_pitch: [15, 'microns'] #pixel pitch for broadband imager
       detector_format: [[128, 128], ['pixels', 'pixels']] #detector size in pixels
-      QE: RST_H4RG_Mean_QE.yaml
+      QE: ../Detectors/RST_H4RG_Mean_QE.yaml
       RN: [1, 'electrons/pixel'] #upper limit for read noise for LOWFS 
       T_sensor: [65, 'K'] #sensor is kept below ambient to minimize noise
       Power_sensor: [0.05, 'W'] #upper limit on the allowed power dissipation from the detector
@@ -173,7 +173,7 @@ NIR_Channels:
       substrate_type: ['HgCdTe', 'unitless'] #visible detectors are Silicon-based
       pixel_pitch: [15, 'microns'] #pixel pitch for broadband imager
       detector_format: [[2048, 2048], ['pixels', 'pixels']] #detector size in pixels
-      QE: SaphiraLMAPDwGain_QE.yaml
+      QE: ../Detectors/SaphiraLMAPDwGain_QE.yaml
       T_electronics: [50, 'K'] #electronics are at ambient
       Power_electronics: [0.2, 'W'] #upper boundary on the amount of power that the electronics dissipate
       T_sensor: [65, 'K'] #sensor is kept below ambient to minimize noise

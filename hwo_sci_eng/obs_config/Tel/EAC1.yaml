@@ -13,13 +13,13 @@ PM_aperture:
         M1_Rc: [-35.5776, 'meters'] #radius of curvature of the parent primary mirror
         M1_k: [-0.991054812375926, 'unitless'] #unitless; conic constant of the parent primary mirror
     M1_GC_vertex: [[0, 0, 0, 0, 0, 0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x,y,z,rx, ry, rz position of the M1 primary mirror vertex in the M1 Vertex Coordinate System
-    M1_reflectivity: XeLiF_refl.yaml #reflectivity curve vs. wavelength
+    M1_reflectivity: ../reflectivities/XeLiF_refl.yaml #reflectivity curve vs. wavelength
     M1_OffAxisDistance: [4.754, 'meters'] #EAC1 is an off-axis telescope. This describes how far off axis on the parent sphere the primary is.
 SM:
     M2_Rc: [-4.13686525041579, 'meters'] #Radius of curvature of the secondary mirror
     M2_k: [-1.53650638145207, 'unitless'] #Conic constant of secondary mirror segment
     M2_GC_vertex: [[0, 0.05062064808, -15.098269601, -1.580743398, 0,0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x, y, z, rx, ry, rz of the M2 mirror in the M1 Vertex Coordinate System
-    reflectivity: XeLiF_ref.yaml #reflectivity curve vs. wavelength
+    reflectivity: ../reflectivities/XeLiF_ref.yaml #reflectivity curve vs. wavelength
 M3:
     M3_Rc: [-4.9909307252683, 'meters'] # Radius of curvature of the tertiary, NOTE THAT IT IS SEGMENTED 
     M3_k: [-1.3445836937761, 'unitless'] # conic constant of the tertiary mirror
@@ -37,7 +37,7 @@ OTA_full:
     image_RC: [65.535, 'meters'] #radius of curvatuer of the telescope image plane
     image_GC_vertex: [[0, 4.100793165, 1.520655943, -90.92342264, 0, 0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x, y, z, rx, ry, rz of the image plane in the M1 Vertex Coordinate System
 INST:
-    HRI: HRI.yaml #contains all the instrument parameters for the high-resolution imager
-    GI: GI.yaml #includes all instrument parameters for the guider instruments
-    CI: CI.yaml #includes all instrument parameters for the coronagraphic instrument
-    UVI: UVI.yaml #includes all instrument parameters for the ultraviolet instrument
+    HRI: ../HRI/HRI.yaml #contains all the instrument parameters for the high-resolution imager
+    GI: ../GI/GI.yaml #includes all instrument parameters for the guider instruments
+    CI: ../CI/CI.yaml #includes all instrument parameters for the coronagraphic instrument
+    UVI: ../UVI/UVI.yaml #includes all instrument parameters for the ultraviolet instrument

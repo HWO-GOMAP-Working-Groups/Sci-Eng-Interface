@@ -5,6 +5,7 @@ FUV_Imager:
     AverageAngRes_fullFOV: [48, 'mas'] #average angular resolution across the full FOV
     AverageAngRes_1x1: [40, 'mas'] #average angular resolution in the inner 1' x 1' FOV
     N_refl_optics: [3, 'unitless'] #number of reflective optics after telescope focal plane
+    reflectivities: ../reflectivities/XeLiF_refl.yaml
     shutters: MSA
     TilingFUVMOS: [[2, 1], ['unitless', 'unitless']] #Tiling of the MSAs for FUVMOS
     detetor: MCP
@@ -70,8 +71,8 @@ MSA:
   SingleArrayFormat: [[420, 840], ['unitless', 'unitless']] #number of microshutters in a given direction. 840 shutters in the dimension of 100 µm; 420 shutters in the demsnions of 200 µm.
 MCP:
   Extent: [[200, 150], ['mm', 'mm']] #extent of the microchannel plante tiles
-  QE: MCP_QE.yaml
+  QE: ../Detectors/MCP_QE.yaml
 CMOS:
   PixelPitch: [6.5, 'microns'] #pixel pitch for CMOS detector
   DetectorFormat: [[8192, 8192], ['pixels', 'pixels']] #CMOS 8K x 8K detectors
-  QE: Teledyne_COSMOS_CMOS_QE.yaml
+  QE: ../DetectorsTeledyne_COSMOS_CMOS_QE.yaml
