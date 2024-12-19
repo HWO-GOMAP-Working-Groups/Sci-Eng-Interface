@@ -2,7 +2,7 @@ opticalpath:
   total_channels: [4, 'number'] #number of coronagraph channels
   n_pol_splits: [2, 'number'] #number of polarization splits
   n_wave_splits: [2, 'number'] #number of wavelength splits, between near infrared and viible channels
-  full_path: ['PM','SM','TCA','TCA','TCA','TCA','wave_beamsplitter', 'pol_beamsplitter', 'FSM', 'OAPs_forward', 'OAPs_forward', 'DM1', 'DM2', 'OAPs_forward', 'Fold', 'OAPs_back', 'Apodizer', 'OAPs_back', 'Focal_Plane_Mask', 'OAPs_back', 'Lyot_Stop', 'OAPs_back', 'Field_Stop', 'OAPs_back', 'filters', 'OAPs_back', 'Detector']
+  full_path: ['PM','SM','TCA','TCA','TCA','TCA','wave_beamsplitter', 'pol_beamsplitter', 'FSM', 'OAPs_forward', 'OAPs_forward', 'DM1', 'DM2', 'OAPs_forward', 'Fold', 'OAPs_back', 'Apodizer', 'OAPs_back', 'Focal_Plane_Mask', 'OAPs_back', 'Lyot_Stop', 'OAPs_back', 'Field_Stop', 'OAPs_back', 'filters', 'OAPs_back', 'Detector','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless','unitless']
 wave_beamsplitter:
   AOI: [22.5, 'degrees'] #angle of incidence of polarization beamsplitter
   transition_wavelength: [1, 'micron'] #wavelength at which the light goes from 
@@ -137,8 +137,8 @@ Visible_Channels:
     Broadband_Imager: 
       plate_scale: [4.62, 'mas/pixel'] #final plate scale on the sky; all CI files work at F/40.3 at the direct imaging FPA, implying focal length of 290160 mm
       #RMS_WFE: [, 'nm'] #RMS wavefront error at instrument focal plane
-    #IFS:
-      #plate_scale: [, 'mas/pixel'] #final plate scale on the sky
+    IFS:
+      plate_scale: [4.62, 'mas/pixel'] #final plate scale on the sky
       #RMS_WFE: [, 'nm'] #RMS wavefront error at instrument focal plane
       #spectral_resolution: [140, 'unitless'] #spectral resolution 
       #spec_res_defining_wave: [0.7, 'micron'], #spectral resolution defining wavelength
