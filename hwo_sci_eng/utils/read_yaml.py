@@ -9,7 +9,7 @@ paths = {
     "ci": "/obs_config/CI/CI.yaml"
 }
 
-def read_eac(component):
+def read_hwo(component):
     """
     A generic component reader
     """
@@ -19,19 +19,19 @@ def read_eac(component):
     return comp_yaml
 
 def eac1():
-    return read_eac("eac1")
+    return read_hwo("eac1")
 
 def eac2():
-    return read_eac("eac2")
+    return read_hwo("eac2")
 
 def eac3():
-    return read_eac("eac3")
+    return read_hwo("eac3")
 
 def hri():
-    return read_eac("hri")
+    return read_hwo("hri")
 
 def uvi():
-    return read_eac("uvi")
+    return read_hwo("uvi")
 
 def ci():
-    return read_eac("ci")
+    return read_hwo("ci")
