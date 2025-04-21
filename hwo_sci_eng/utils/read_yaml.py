@@ -9,7 +9,7 @@ paths = {
     "ci": "/obs_config/CI/CI.yaml"
 }
 
-def read(component):
+def read_eac(component):
     """
     A generic component reader
     """
@@ -17,3 +17,21 @@ def read(component):
         comp_yaml = yaml.load(f, Loader=yaml.SafeLoader)
    
     return comp_yaml
+
+def eac1():
+    return read_eac("eac1")
+
+def eac2():
+    return read_eac("eac2")
+
+def eac3():
+    return read_eac("eac3")
+
+def hri():
+    return read_eac("hri")
+
+def uvi():
+    return read_eac("uvi")
+
+def ci():
+    return read_eac("ci")
