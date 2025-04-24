@@ -8,7 +8,7 @@ FUV_Imager:
     reflectivities: ../reflectivities/XeLiF_refl.yaml
     shutters: MSA
     TilingFUVMOS: [[2, 1], ['unitless', 'unitless']] #Tiling of the MSAs for FUVMOS
-    detetor: MCP
+    detector: MCP
     detectorTiling: [[2, 1], ['unitless', 'unitless']] #Tiling of MCPs for FUVMOS
 FUV_MOS:
   G120M:
