@@ -49,7 +49,7 @@ FUV_MOS:
     N_refl_optics: [3, 'unitless'] #number of reflective optics after telescope focal plane. Includes the grating.
   shutters: MSA
   TilingFUVMOS: [[2, 1], ['unitless', 'unitless']] #Tiling of the MSAs for FUVMOS
-  detetor: MCP
+  detector: MCP
   detectorTiling: [[2, 1], ['unitless', 'unitless']] #Tiling of MCPs for FUVMOS
 NUV_MOS:
   G300M:
