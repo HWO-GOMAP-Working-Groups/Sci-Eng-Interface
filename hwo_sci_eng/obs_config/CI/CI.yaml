@@ -7,7 +7,7 @@ wave_beamsplitter:
   AOI: [22.5, 'degrees'] #angle of incidence of polarization beamsplitter
   transition_wavelength: [1, 'micron'] #wavelength at which the light goes from 
   reflectivity: ../reflectivities/dichroic_refl.yaml
-  transmission: ../reflectivities/dichroic_tranmission.yaml
+  transmission: ../reflectivities/dichroic_transmission.yaml
 pol_beamsplitter:
   transmitted_pol_state: ['S', 'unitless']
   reflective_pol_state: ['P', 'unitless']

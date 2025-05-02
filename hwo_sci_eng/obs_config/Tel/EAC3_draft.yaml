@@ -14,7 +14,7 @@ M3:
     k: [-999.99999999999, 'unitless'] # conic constant of the tertiary mirror
     nsegs: [5, 'unitless']
     GC_vertex: [[0, 0.8788664309, 3.195682856, -5.677499209, 0, 0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x, y, z, rx, ry, rz of the M3 mirror in the M1 Vertex Coordinate System
-    asph_coefs: [] #
+    asph_coeffs: [] #
 M4:
     Rc: [999.999999999999, 'meters'] #Radius of curvature of M4 in meters
     k: [0, 'unitless'] #conic constant of M4
