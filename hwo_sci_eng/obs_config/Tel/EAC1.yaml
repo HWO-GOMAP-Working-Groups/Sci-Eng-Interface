@@ -21,11 +21,11 @@ SM:
     GC_vertex: [[0, 0.05062064808, -15.098269601, -1.580743398, 0,0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x, y, z, rx, ry, rz of the M2 mirror in the M1 Vertex Coordinate System
     reflectivity: ../reflectivities/XeLiF_refl.yaml #reflectivity curve vs. wavelength
 M3:
-    Rc: [-4.9909307252683, 'meters'] # Radius of curvature of the tertiary, NOTE THAT IT IS SEGMENTED 
+    Rc: [-4.9909307252683, 'meters'] # Radius of curvature of the tertiary, NOTE THAT IT IS SEGMENTED
     k: [-1.3445836937761, 'unitless'] # conic constant of the tertiary mirror
     nsegs: [5, 'unitless']
     GC_vertex: [[0, 0.8788664309, 3.195682856, -5.677499209, 0, 0], ['meters', 'meters', 'meters', 'degrees', 'degrees', 'degrees']] #x, y, z, rx, ry, rz of the M3 mirror in the M1 Vertex Coordinate System
-    asph_coefs: [] #
+    asph_coeffs: [] #
 M4:
     Rc: [417.107295000867, 'meters'] #Radius of curvature of M4 in meters
     k: [0, 'unitless'] #conic constant of M4
