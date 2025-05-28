@@ -1,44 +1,37 @@
 import os, yaml
 
-def eac1(): 
-    
-    with open(os.getenv('SCI_ENG_DIR') + '/obs_config/Tel/EAC1.yaml', 'r') as f:
-        eac1 = yaml.load(f, Loader=yaml.SafeLoader)
+paths = {
+    "eac1": "/obs_config/Tel/EAC1.yaml",
+    "eac2": "/obs_config/Tel/EAC2_draft.yaml",
+    "eac3": "/obs_config/Tel/EAC2_draft.yaml",
+    "hri": "/obs_config/HRI/HRI.yaml",
+    "uvi": "/obs_config/UVI/UVI.yaml",
+    "ci": "/obs_config/CI/CI.yaml"
+}
+
+def read_hwo(component):
+    """
+    A generic component reader
+    """
+    with open(os.getenv('SCI_ENG_DIR') + paths[component.lower()], 'r') as f:
+        comp_yaml = yaml.load(f, Loader=yaml.SafeLoader)
    
-    return eac1 
+    return comp_yaml
 
-def eac2(): 
-    
-    with open(os.getenv('SCI_ENG_DIR') + '/obs_config/Tel/EAC2_draft.yaml', 'r') as f:
-        eac2 = yaml.load(f, Loader=yaml.SafeLoader)
+def eac1():
+    return read_hwo("eac1")
 
-    return eac2 
+def eac2():
+    return read_hwo("eac2")
 
-def eac3(): 
-    
-    with open(os.getenv('SCI_ENG_DIR') + '/obs_config/Tel/EAC3_draft.yaml', 'r') as f:
-        eac3 = yaml.load(f, Loader=yaml.SafeLoader)
+def eac3():
+    return read_hwo("eac3")
 
-    return eac3 
+def hri():
+    return read_hwo("hri")
 
-def hri(): 
-    
-    with open(os.getenv('SCI_ENG_DIR') + '/obs_config/HRI/HRI.yaml', 'r') as f:
-        hri = yaml.load(f, Loader=yaml.SafeLoader)
-   
-    return hri 
+def uvi():
+    return read_hwo("uvi")
 
-def uvi(): 
-
-    with open(os.getenv('SCI_ENG_DIR') + '/obs_config/UVI/UVI.yaml', 'r') as f:
-        uvi= yaml.load(f, Loader=yaml.SafeLoader)
-
-    return uvi 
-
-def ci(): 
-
-    with open(os.getenv('SCI_ENG_DIR') + '/obs_config/CI/CI.yaml', 'r') as f:
-        ci = yaml.load(f, Loader=yaml.SafeLoader)
-
-    return ci 
-
+def ci():
+    return read_hwo("ci")
