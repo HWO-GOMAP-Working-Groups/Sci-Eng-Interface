@@ -3,7 +3,7 @@ import os, yaml
 paths = {
     "eac1": "/obs_config/Tel/EAC1.yaml",
     "eac2": "/obs_config/Tel/EAC2_draft.yaml",
-    "eac3": "/obs_config/Tel/EAC2_draft.yaml",
+    "eac3": "/obs_config/Tel/EAC3_draft.yaml",
     "hri": "/obs_config/HRI/HRI.yaml",
     "uvi": "/obs_config/UVI/UVI.yaml",
     "ci": "/obs_config/CI/CI.yaml"
